@@ -21,6 +21,8 @@
 
 extern "C"
 {
+    // FIXME: this is a hack for iostream`
+    int __dso_handle;
     struct model_header
     {
         uint32_t identifier;
