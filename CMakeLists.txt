@@ -65,3 +65,4 @@ add_subdirectory(lib)
 
 include_directories(include)
 add_subdirectory(examples)
+add_subdirectory(src)
