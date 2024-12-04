@@ -1,4 +1,4 @@
-﻿cmake_minimum_required (VERSION 3.8)
+﻿cmake_minimum_required (VERSION 3.10)
 
 add_library(mpark_variant INTERFACE)
 target_include_directories(mpark_variant INTERFACE include)
