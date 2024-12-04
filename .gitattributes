@@ -1,0 +1,4 @@
+lib/nncase/v1-rev/lib/libkendryte.a filter=lfs diff=lfs merge=lfs -text
+lib/nncase/v1-rev/lib/libnncase.functional.a filter=lfs diff=lfs merge=lfs -text
+lib/nncase/v1-rev/lib/libnncase.rt_modules.k210.a filter=lfs diff=lfs merge=lfs -text
+lib/nncase/v1-rev/lib/libnncase.runtime.a filter=lfs diff=lfs merge=lfs -text

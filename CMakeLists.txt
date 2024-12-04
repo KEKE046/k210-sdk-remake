@@ -1,8 +1,18 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.10)
+
+set(CMAKE_TOOLCHAIN_FILE cmake/k210-toolchain.cmake)
 
 project(k210-project VERSION 0.0.1)
 
-include("cmake/k210-toolchain.cmake")
+cmake_policy(SET CMP0175 NEW)
+macro(target_dump_binary target)
+    add_custom_command(
+        TARGET ${target} POST_BUILD
+        COMMAND ${CMAKE_OBJCOPY} --output-format=binary $<TARGET_FILE:${target}> ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${target}.bin
+        # DEPENDS ${target}
+        COMMENT "Generating .bin file ..."
+    )
+endmacro()
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -27,7 +37,6 @@ add_compile_options(
     -Os
     -ggdb
 )
-# list(APPEND CMAKE_CXX_FLAGS -fno-use-cxa-atexit)
 list(APPEND CMAKE_CXX_FLAGS "-Wno-pointer-arith")
 list(APPEND CMAKE_C_FLAGS "-Wno-pointer-to-int-cast -Wno-incompatible-pointer-types -Wno-discarded-qualifiers")
 add_link_options(
@@ -65,3 +74,4 @@ add_subdirectory(lib)
 
 include_directories(include)
 add_subdirectory(examples)
+add_subdirectory(src)

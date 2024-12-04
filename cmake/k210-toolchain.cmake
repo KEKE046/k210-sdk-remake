@@ -14,19 +14,10 @@ set(CMAKE_OBJCOPY               "${KENDRYTE_TOOLCHAIN_ROOT}/bin/${RISCV_TOOLCHAI
 set(CMAKE_SIZE                  "${KENDRYTE_TOOLCHAIN_ROOT}/bin/${RISCV_TOOLCHAIN_PREFIX}-size")
 set(CMAKE_OBJDUMP               "${KENDRYTE_TOOLCHAIN_ROOT}/bin/${RISCV_TOOLCHAIN_PREFIX}-objdump")
 set(CMAKE_RANLIB                "${KENDRYTE_TOOLCHAIN_ROOT}/bin/${RISCV_TOOLCHAIN_PREFIX}-ranlib")
-set(CMAKE_MAKE_PROGRAM          "${KENDRYTE_TOOLCHAIN_ROOT}/bin/make")
+# set(CMAKE_MAKE_PROGRAM          "${KENDRYTE_TOOLCHAIN_ROOT}/bin/make")
 set(CMAKE_SYSTEM_LIBRARY_PATH   "${KENDRYTE_TOOLCHAIN_ROOT}/${RISCV_TOOLCHAIN_PREFIX}/lib/")
 
 set(CMAKE_CXX_STANDARD          17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_C_STANDARD            11)
 set(CMAKE_C_STANDARD_REQUIRED   ON)
-
-macro(target_dump_binary target)
-    add_custom_command(
-        TARGET ${target} POST_BUILD
-        COMMAND ${CMAKE_OBJCOPY} --output-format=binary $<TARGET_FILE:${target}> ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${target}.bin
-        DEPENDS ${target}
-        COMMENT "Generating .bin file ..."
-    )
-endmacro()

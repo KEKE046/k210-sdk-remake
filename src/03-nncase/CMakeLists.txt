@@ -1,0 +1,6 @@
+file(GLOB files *.c *.h)
+add_executable(s03-nncase ${files})
+# add_dependencies(s03-nncase ${CMAKE_CURRENT_SOURCE_DIR}/infer.bin ${CMAKE_CURRENT_SOURCE_DIR}/mnist.kmodel)
+target_link_libraries(s03-nncase PUBLIC kendryte m nncase)
+target_include_directories(s03-nncase PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+target_dump_binary(s03-nncase)
