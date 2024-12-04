@@ -17,8 +17,8 @@ static void ai_done(void *ctx) {
 }
 
 int main(void) {
-    // sysctl_pll_set_freq(SYSCTL_PLL0, 800000000UL);
-    // sysctl_pll_set_freq(SYSCTL_PLL1, 400000000UL);
+    sysctl_pll_set_freq(SYSCTL_PLL0, 800000000UL);
+    sysctl_pll_set_freq(SYSCTL_PLL1, 400000000UL);
     sysctl_clock_enable(SYSCTL_CLOCK_AI);
     // uarths_init();
     plic_init();
