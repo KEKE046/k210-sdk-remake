@@ -2,8 +2,6 @@
 #include "sleep.h"
 #include "stdio.h"
 #include "sysctl.h"
-#include "uarths.h"
-#include "w25qxx.h"
 #define INCBIN_STYLE INCBIN_STYLE_SNAKE
 #define INCBIN_PREFIX
 #include "incbin.h"

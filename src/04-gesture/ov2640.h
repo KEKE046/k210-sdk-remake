@@ -12,32 +12,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef _GPIO_COMMON_H
-#define _GPIO_COMMON_H
+#ifndef _OV2640_H
+#define _OV2640_H
 
-typedef enum _gpio_drive_mode
-{
-    GPIO_DM_INPUT,
-    GPIO_DM_INPUT_PULL_DOWN,
-    GPIO_DM_INPUT_PULL_UP,
-    GPIO_DM_OUTPUT,
-} gpio_drive_mode_t;
+#include <stdint.h>
 
-typedef enum _gpio_pin_edge
-{
-    GPIO_PE_NONE,
-    GPIO_PE_FALLING,
-    GPIO_PE_RISING,
-    GPIO_PE_BOTH,
-    GPIO_PE_LOW,
-    GPIO_PE_HIGH = 8,
-} gpio_pin_edge_t;
+#define OV2640_ADDR         0x60
 
-typedef enum _gpio_pin_value
-{
-    GPIO_PV_LOW,
-    GPIO_PV_HIGH
-} gpio_pin_value_t;
+#ifdef __cplusplus
+extern "C" {
+#endif
+int ov2640_init(void);
+int ov2640_read_id(uint16_t *manuf_id, uint16_t *device_id);
+#ifdef __cplusplus
+}
+#endif
 
+#endif /* _OV2640_H */
 
-#endif /* _GPIO_COMMON_H */
