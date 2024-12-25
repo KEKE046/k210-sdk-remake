@@ -35,6 +35,7 @@ add_compile_options(
     -fno-math-errno
     -fsingle-precision-constant
     -Os
+    -O2
     -ggdb
 )
 list(APPEND CMAKE_CXX_FLAGS "-Wno-pointer-arith")

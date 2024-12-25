@@ -15,10 +15,6 @@
 #ifndef _GPIO_COMMON_H
 #define _GPIO_COMMON_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 typedef enum _gpio_drive_mode
 {
     GPIO_DM_INPUT,
@@ -43,8 +39,5 @@ typedef enum _gpio_pin_value
     GPIO_PV_HIGH
 } gpio_pin_value_t;
 
-#ifdef __cplusplus
-}
-#endif
 
 #endif /* _GPIO_COMMON_H */

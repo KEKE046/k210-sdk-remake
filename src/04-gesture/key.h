@@ -6,6 +6,7 @@
 #define     KEY_BUFF_LEN		(4)
 
 #ifdef __cplusplus
+#include <cstdint>
 extern "C" {
 #endif
 int	key_trigger(void* ctx);
